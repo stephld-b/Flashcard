@@ -6,7 +6,7 @@ function DeckList(){
     const history = useHistory();
     const [ decks, setDecks ] = useState([]);
 
-    useEffect(loadDeck(), []);
+    useEffect(loadDeck, []);
 
     function deleteHandler(deckId){
         const confirmed = window.confirm("Delete this deck? You will not be able to recover it");
@@ -23,7 +23,7 @@ function DeckList(){
 return (
 //displays multiple decks
 <ul className="deck-cards">
-    {decks.map((deck) => (
+     {decks.map((deck) => (
         <li key={deck.id}>
              <div className="card">
                <div className="card-body">

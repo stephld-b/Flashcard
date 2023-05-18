@@ -30,6 +30,8 @@ function CardList({ cards }){
     if(!cards){
         return null;
     } else if(cards.length > 2){
+        const flip = (<button className="btn btn-secondary" onClick={handleFlip}>Flip</button>)
+        const next =(<button className="btn btn-primary" onClick={handleNext}>Next</button>)
         return (
             <ul className="deck-cards">
                 {cards && (
@@ -38,8 +40,7 @@ function CardList({ cards }){
                     <div className="card-body">
                       <h5 className="card-title">Card {card + 1} of {cards.length}</h5>
                       <p className="card-text">{frontSide ? cards[card].front : cards[card].back}</p>
-                      <button className="btn btn-secondary" onClick={handleFlip}>Flip</button>
-                      <button className="btn btn-primary" onClick={handleNext}>Next</button>
+                      {frontSide ? flip : next}
                     </div>
                   </div>
                   </li>

@@ -54,6 +54,12 @@
       "back": "Back side of card321",
       "deckId": 2,
       "id": 12
+    },
+    {
+      "front": "Front side of card",
+      "back": "Back side of card",
+      "deckId": 2,
+      "id": 13
     }
   ]
 }

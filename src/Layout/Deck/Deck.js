@@ -8,7 +8,7 @@ const { deckId } = useParams();
 const history = useHistory();
 
 
-useEffect(loadDeck(), [deckId]);
+useEffect(loadDeck, [deckId]);
 
 function loadDeck() {
   readDeck(deckId).then(setDeck);
