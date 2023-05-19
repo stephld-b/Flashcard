@@ -14,20 +14,19 @@ function loadDeck() {
   readDeck(deckId).then(setDeck);
 }
 
-function deleteDeck(){
+function deleteThisDeck(){
   const confirmed = window.confirm("Delete this deck? You will not be able to recover it");
   if(confirmed){
-      deleteDeck(deck.id).then(() => history.push("/decks"));
+    deleteDeck(deck.id).then(() => history.push("/decks"));
   }
 
 }
 
-function deleteCard(cardId){
+function deleteThisCard(cardId){
   const confirmed = window.confirm("Delete this card? You will not be able to recover it");
   if(confirmed){
       deleteCard(cardId).then(loadDeck);
   }
-
 }
 
 
@@ -57,7 +56,7 @@ return (
         <Link className="btn btn-primary"  to={`/decks/${deckId}/study`}>Study</Link>
         <Link className="btn btn-primary" to={`/decks/${deckId}/cards/new`}>+ Add Cards</Link>
         <button className="btn btn-danger" type="button"
-        onClick={() => deleteDeck(deck.id)}>
+        onClick={() => deleteThisDeck(deck.id)}>
         Delete
         </button>
 
@@ -72,7 +71,7 @@ return (
                   <p className="card-text">{card.back}</p>
                   </div>
                   <Link to={`/decks/${deck.id}/cards/${card.id}/edit`} className="btn btn-secondary">Edit</Link>
-                  <button className="btn btn-danger" type="button" onClick={() => deleteCard(card.id)}>
+                  <button className="btn btn-danger" type="button" onClick={() => deleteThisCard(card.id)}>
                         Delete
                     </button>
                 </div>
