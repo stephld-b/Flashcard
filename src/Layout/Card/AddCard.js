@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { readDeck, createCard } from "../../utils/api/index";
+import CardForm from "./CardForm";
 
 function AddCard({refresh}) {
   const [deck, setDeck] = useState([]);
@@ -17,8 +18,7 @@ function AddCard({refresh}) {
     loadDeck();
   }, [deckId]);
 
-  const handleFrontChange = (event) => setFront(event.target.value);
-  const handleBackChange = (event) => setBack(event.target.value);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const card = { front: front, back: back, deckId: deckId };
@@ -51,44 +51,12 @@ function AddCard({refresh}) {
       </div>
       <h2>{deck.name}: Add Card</h2>
       <div >
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label className="name">Front</label>
-            <textarea
-            className="form-control"
-              id="front"
-              type="textarea"
-              name="front"
-              required
-              rows="3"
-              onChange={handleFrontChange}
-              value={front}
-            ></textarea>
-          </div>
-          <div className="form-group">
-            <label className="exampleFormControlTextarea1" >Back</label>
-            <textarea
-              className="form-control"
-              id="exampleFormControlTextarea1" 
-              type="textarea"
-              name="back"
-              required
-              rows="3"
-              onChange={handleBackChange}
-              value={back}
-            ></textarea>
-          </div>
-          <div>
-            <button className="btn btn-secondary" type="button" 
-            onClick={() => history.push("/")}>
-              Done
-            </button>
-            <button className="btn btn-primary" type="submit" 
-            onClick={handleSubmit}>
-              Save
-            </button>
-          </div>
-        </form>
+      <CardForm 
+        front={front} 
+        back={back} 
+        handleSubmit={handleSubmit} 
+        setFront={setFront}
+        setBack={setBack}/>
       </div>
     </div>
   );

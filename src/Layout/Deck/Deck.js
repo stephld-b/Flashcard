@@ -17,7 +17,7 @@ function loadDeck() {
 function deleteThisDeck(){
   const confirmed = window.confirm("Delete this deck? You will not be able to recover it");
   if(confirmed){
-    deleteDeck(deck.id).then(() => history.push("/decks"));
+    deleteDeck(deck.id).then(() => history.push("/"));
   }
 
 }

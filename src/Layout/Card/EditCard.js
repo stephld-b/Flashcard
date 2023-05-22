@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { readDeck, updateCard } from "../../utils/api/index";
+import CardForm from "./CardForm";
 
 function EditCard() {
   const [deck, setDeck] = useState([]);
@@ -57,36 +58,12 @@ function EditCard() {
       </div>
       <h2>Edit Card</h2>
       <div>
-      <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label className="name">Front</label>
-                <input id="front" 
-                className="form-control"
-                type="textarea" 
-                name="front" 
-                required
-                row="3"
-                onChange={handleFrontChange} 
-                value={front} />
-            </div>
-            <div className="form-group">
-                <label className="exampleFormControlTextarea1" >Back</label>
-                <input id="exampleFormControlTextarea1" 
-                className="form-control"
-                type="textarea" 
-                name="back" 
-                required
-                rows="3"
-                onChange={handleBackChange}
-                value={back} />
-            </div>
-            <div>
-                <button className="btn btn-secondary" type="button" 
-                onClick={() => history.push(`/decks/${deckId}`)}>Cancel</button>
-                <button className="btn btn-primary" type="submit" 
-                onClick={handleSubmit}>Submit</button>
-            </div>
-            </form>
+      <CardForm 
+        front={front} 
+        back={back} 
+        handleSubmit={handleSubmit} 
+        setFront={setFront}
+        setBack={setBack}/>
       </div>
     </div>
   );

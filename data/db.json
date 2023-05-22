@@ -1,4 +1,29 @@
 {
-  "decks": [],
-  "cards": []
+  "decks": [
+    {
+      "name": "Rendering in React",
+      "description": "React",
+      "id": 1
+    }
+  ],
+  "cards": [
+    {
+      "front": "Front side of card123",
+      "back": "Back side of card123",
+      "deckId": 1,
+      "id": 1
+    },
+    {
+      "front": "Front side of card321",
+      "back": "Back side of card321",
+      "deckId": 1,
+      "id": 2
+    },
+    {
+      "front": "Front side of card5",
+      "back": "Back side of card5",
+      "deckId": 1,
+      "id": 3
+    }
+  ]
 }
