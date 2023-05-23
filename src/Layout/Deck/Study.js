@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { readDeck } from "../../utils/api/index";
 import CardList from "../Card/CardList";
 
 function Study(){
     const [deck, setDeck] = useState([]);
     const { deckId } = useParams();
+    const history = useHistory();
 
     useEffect(() => {
         async function loadDeck() {
@@ -26,14 +27,14 @@ function Study(){
             <nav aria-label="breadcrumb">
               <ul className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <a href="/">
+                  <Link to="/">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="breadcrumb-item">
-                  <a href={`decks/${deckId}`}>{deck.name}</a>
+                  <Link to={`/decks/${deckId}`}>{deck.name}</Link>
                 </li>
-                <li className="breadcrumb active" aria-current="page">
+                <li className="breadcrumb-item active" aria-current="page">
                      Study
                 </li>
               </ul>

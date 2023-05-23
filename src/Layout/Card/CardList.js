@@ -15,7 +15,7 @@ function CardList({ cards }){
     function handleNext() {
         
         if(card + 1 === cards.length){
-            const result = window.confirm("Restart cards? CLick 'cancel' to return to the home page.");
+            const result = window.confirm("Restart cards? Click 'cancel' to return to the home page.");
             if(result === true){
                 setCard(0);
             } else {

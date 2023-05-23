@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import { readDeck, updateDeck } from "../../utils/api";
 
 function EditDeck() {
@@ -38,11 +38,11 @@ function EditDeck() {
         <nav aria-label="breadcrumb">
           <ul className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="/">
+              <Link to="/">
                 Home
-              </a>
+              </Link>
             </li>
-            <li className="breadcrumb-item">/ {deck.name}</li>
+            <li className="breadcrumb-item"><Link to={`/decks/${deckId}`}>{deck.name}</Link></li>
             <li className="breadcrumb-item active" aria-current="page">
                 Edit Deck
             </li>
